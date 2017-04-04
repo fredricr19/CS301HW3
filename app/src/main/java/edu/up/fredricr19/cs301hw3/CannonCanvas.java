@@ -3,15 +3,16 @@ package edu.up.fredricr19.cs301hw3;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
+
+import java.util.ArrayList;
 
 /**
  * @author Ryan Fredrickson
  */
 
-public class CannonCanvas extends SurfaceView implements View.OnTouchListener {
+public class CannonCanvas extends SurfaceView implements View.OnClickListener {
     CannonAnimator animator;
     private Paint backgroundPaint = new Paint();
 
@@ -24,26 +25,55 @@ public class CannonCanvas extends SurfaceView implements View.OnTouchListener {
         this.setBackgroundColor(0xFFFFFFFF);
         this.animator = (CannonAnimator)anim;
 
-        this.setOnTouchListener(this);
+        //this.setOnTouchListener(this);
 
         backgroundPaint.setColor(this.animator.backgroundColor());
 
     }
 
+    /**
+     * I got this from AnimationCanvas
+     * causes this thread to pause for a given interval.
+     *
+     * @param interval
+     *            duration in milliseconds
+     */
+    private void sleep(int interval) {
+        try {
+            Thread.sleep(interval); // use sleep to avoid busy wait
+        } catch (InterruptedException ie) {
+            // don't care if we're interrupted
+        }
+    }// sleep
+
     @Override
     protected void onDraw(Canvas canvas){
         cannon.drawMe(canvas);
 
-        Paint target = new Paint();
-        target.setColor(0xFFFF000F);
+        Paint targetPaint = new Paint();
+        targetPaint.setColor(0xFFFF000F);
 
-        canvas.drawCircle(1000, 1600, 50, target);
-        canvas.drawCircle(1300, 1100, 75, target);
+
+        ArrayList<Spot> spotList = new ArrayList<Spot>();
+
+        spotList.add(new Spot(1000, 1600));
+        spotList.add(new Spot(1300, 1100));
+
+        for(int i = 0; i < spotList.size(); i++){
+            spotList.get(i).setColor(0xFFFF000F);
+            spotList.get(i).draw(canvas);
+        }
+
+        while(!animator.doQuit()){
+            animator.tick(canvas);
+            sleep(animator.interval());
+            animator.setQuit(true);
+        }
+
+
     }
-
     @Override
-    public boolean onTouch(View v, MotionEvent event) {
+    public void onClick(View v) {
         this.animator.onClick(v);
-        return true;
     }
 }

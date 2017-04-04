@@ -26,5 +26,8 @@ public class CannonBall extends Spot{
         canvas.drawCircle(x, y, this.getSize(), myPaint);  //main circle
     }
 
+    public void setVX(float a){ this.vx = a; }
+    public void setVY(float a){ this.vx = a; }
+
     public float getX(){ return this.x; }
 }

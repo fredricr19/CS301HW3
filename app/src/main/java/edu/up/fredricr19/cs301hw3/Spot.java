@@ -7,14 +7,14 @@ import android.graphics.Paint;
 /** This class represents a single round spot (circle) on the screen */
 public class Spot {
 	
-	public static final int INIT_SIZE = 20;
-	public static final int MIN_SIZE = 3;
-	public static final int MAX_SIZE = 100;
+	public static final int INIT_SIZE = 60;
+	public static final int MIN_SIZE = 40;
+	public static final int MAX_SIZE = 80;
 
-	protected float x; // x-coord
-	protected float y; // y-coord
-	protected float vx;
-	protected float vy;
+	public float x; // x-coord
+	public float y; // y-coord
+	public float vx;
+	public float vy;
 	private int size = INIT_SIZE; // all spots begin at size 20
 	protected Paint myPaint; // how the spot is drawn
 	protected int maxX; // width of the screen (pixels)
