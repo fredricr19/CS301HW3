@@ -15,6 +15,7 @@ public class CannonCanvas extends SurfaceView implements View.OnTouchListener {
     CannonAnimator animator;
     private Paint backgroundPaint = new Paint();
 
+
     Cannon cannon = new Cannon(125, 1600, 0xFF000FFF);
 
     public CannonCanvas(Context context, Animator anim) {
