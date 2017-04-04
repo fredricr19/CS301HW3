@@ -43,7 +43,7 @@ public class CannonCanvas extends SurfaceView implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        this.animator.onTouch(event);
+        this.animator.onClick(v);
         return true;
     }
 }

@@ -1,7 +1,7 @@
 package edu.up.fredricr19.cs301hw3;
 
 import android.graphics.Canvas;
-import android.view.MotionEvent;
+import android.view.View;
 
 /**
  * An interface that defines an object that is capable of drawing an animation.
@@ -66,7 +66,7 @@ public interface Animator {
 	 * Called whenever the user touches the AnimationCanvas so that the
 	 * animation can respond to the event.
 	 * 
-	 * @param event a MotionEvent describing the touch
+	 * @param v a View describing the click
 	 */
-	public void onTouch(MotionEvent event); 
+	public void onClick(View v);
 }
