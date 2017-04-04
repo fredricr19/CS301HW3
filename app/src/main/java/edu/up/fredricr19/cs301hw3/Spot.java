@@ -122,8 +122,7 @@ public class Spot {
 	 * @param other  the other spot that I may overlap
 	 * @return true if this spot overlaps the given spot
 	 */
-	public boolean overlaps(Spot other)
-	{
+	public boolean overlaps(Spot other){
 		//Determine the distance between the two spots
 		float xDist = Math.abs (other.x - this.x);
 		float yDist = Math.abs (other.y - this.y);

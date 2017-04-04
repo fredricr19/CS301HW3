@@ -11,10 +11,10 @@ import android.view.View;
 public class CannonAnimator implements Animator {
     private int x = 30;
     private int y = 30;
-    CannonBall ball;
+    private CannonBall ball;
 
     @Override
-    public int interval() { return 10; }
+    public int interval() { return 33; }
 
     @Override
     public int backgroundColor(){ return 0xFFFFFFFF; }
@@ -31,8 +31,8 @@ public class CannonAnimator implements Animator {
 
     @Override
     public void tick(Canvas canvas) {
-        ball = new CannonBall(this.x, (int)(this.y*0.85), 40, 0xFFFFFFFF);
-        ball.drawMe(canvas);
+        ball.setPos(this.x, (int)(this.y*0.85));
+        ball.draw(canvas);
     }
 
     @Override

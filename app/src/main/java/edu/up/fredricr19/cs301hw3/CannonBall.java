@@ -20,7 +20,8 @@ public class CannonBall extends Spot{
         outlinePaint.setColor(0xFF000000);
     }
 
-    public void drawMe(Canvas canvas) {
+    @Override
+    public void draw(Canvas canvas) {
         canvas.drawCircle(x, y, this.getSize()+2, outlinePaint);  //outline around circle
         canvas.drawCircle(x, y, this.getSize(), myPaint);  //main circle
     }
