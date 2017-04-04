@@ -11,7 +11,7 @@ public class CannonAnimator implements Animator {
     private int x = 125;
     private int y = 1600;
     private boolean apex = false;
-    private CannonBall ball = new CannonBall(this.x, this.y, 40, 0xFFFFFFFF);
+    private CannonBall ball;
 
     @Override
     public int interval() { return 100; }
@@ -31,15 +31,18 @@ public class CannonAnimator implements Animator {
 
     @Override
     public void tick(Canvas canvas) {
-        if(this.y < 1300){
+        if(this.x > 750){
             apex = true;
         }
 
+        ball.vy = (float)(ball.vy*.9);
         if(!apex){
-            y--;
+            y -= y*ball.vy;
         }else{
-            y++;
+            y += y*ball.vy;
         }
+
+        x += ball.vx;
 
 
         ball.setPos(this.x, (float)(this.y*0.85));
@@ -48,6 +51,8 @@ public class CannonAnimator implements Animator {
 
     @Override
     public void onClick(View v) {
-
+        ball = new CannonBall(this.x, this.y, 40, 0xFFFFFFFF);
+        ball.vx = 15;
+        ball.vy = 15;
     }
 }

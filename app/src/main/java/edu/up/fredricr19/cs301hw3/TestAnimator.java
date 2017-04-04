@@ -2,6 +2,7 @@ package edu.up.fredricr19.cs301hw3;
 
 import android.graphics.*;
 import android.view.MotionEvent;
+import android.view.View;
 
 
 /**
@@ -75,6 +76,11 @@ public class TestAnimator implements Animator {
 		Paint redPaint = new Paint();
 		redPaint.setColor(Color.RED);
 		g.drawCircle(num, num, 60, redPaint);
+	}
+
+	@Override
+	public void onClick(View v) {
+
 	}
 
 	/**

@@ -156,7 +156,7 @@ public class AnimationCanvas extends SurfaceView implements OnTouchListener{
 	 * if I am touched, pass the touch event to the animator
 	 */
 	public boolean onTouch(View v, MotionEvent event) {
-		this.animator.onTouch(event);
+		this.animator.onClick(v);
 		return true;
 	};// class CannonThread
 
