@@ -15,9 +15,6 @@ public class CannonBall extends Spot{
     public CannonBall(int x, int y, int r, int color){
         super(x, y);
         setSize(r);
-        /*this.x = x;
-        this.y = y;
-        this.radius = r;*/
 
         myPaint.setColor(color);
         outlinePaint.setColor(0xFF000000);
