@@ -25,4 +25,6 @@ public class CannonBall extends Spot{
         canvas.drawCircle(x, y, this.getSize()+2, outlinePaint);  //outline around circle
         canvas.drawCircle(x, y, this.getSize(), myPaint);  //main circle
     }
+
+    public float getX(){ return this.x; }
 }

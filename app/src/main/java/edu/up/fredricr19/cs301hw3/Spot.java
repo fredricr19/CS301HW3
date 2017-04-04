@@ -61,8 +61,7 @@ public class Spot {
 	 * @param newX
 	 * 	the new x,y position
 	 */
-	public void setPos(int newX, int newY)
-	{
+	public void setPos(float newX, float newY){
 		this.x = newX;
 		this.y = newY;
 	}
