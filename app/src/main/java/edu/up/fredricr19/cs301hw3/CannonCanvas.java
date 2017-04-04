@@ -38,8 +38,7 @@ public class CannonCanvas extends SurfaceView implements View.OnTouchListener {
         target.setColor(0xFFFF000F);
 
         canvas.drawCircle(1000, 1600, 50, target);
-
-        canvas.drawCircle(1300, 1100, 50, target);
+        canvas.drawCircle(1300, 1100, 75, target);
     }
 
     @Override

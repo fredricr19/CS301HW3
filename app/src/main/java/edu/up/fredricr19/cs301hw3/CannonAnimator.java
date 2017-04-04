@@ -31,6 +31,8 @@ public class CannonAnimator implements Animator {
 
     @Override
     public void tick(Canvas canvas) {
+        this.y = (int)(this.y*0.85);
+        ball = new CannonBall(this.x, this.y, 40, 0xFFFFFFFF);
         ball.drawMe(canvas);
     }
 
