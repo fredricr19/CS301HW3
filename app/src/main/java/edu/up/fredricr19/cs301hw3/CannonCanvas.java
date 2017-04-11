@@ -28,10 +28,9 @@ public class CannonCanvas extends SurfaceView implements View.OnClickListener, V
         this.setBackgroundColor(0xFFFFFFFF);
         this.animator = (CannonAnimator)anim;
 
-        this.setOnTouchListener((OnTouchListener) this);
+        this.setOnTouchListener(this);
 
-        this.cannonThread = new CannonThread(getHolder());
-        cannonThread.start();
+
 
         backgroundPaint.setColor(this.animator.backgroundColor());
 
@@ -87,7 +86,6 @@ public class CannonCanvas extends SurfaceView implements View.OnClickListener, V
          */
         @Override
         public void run() {
-
             Canvas canvas = null;// ref to canvas animator draws upon
             long lastTickEnded = 0; // when the last tick ended
 
@@ -104,8 +102,7 @@ public class CannonCanvas extends SurfaceView implements View.OnClickListener, V
 
                 // Pause to honor the animator's tick frequency specification
                 long currTime = System.currentTimeMillis();
-                long remainingWait = animator.interval()
-                        - (currTime - lastTickEnded);
+                long remainingWait = animator.interval() - (currTime - lastTickEnded);
                 if (remainingWait > 0) {
                     sleep((int) remainingWait);
                 }
@@ -173,13 +170,8 @@ public class CannonCanvas extends SurfaceView implements View.OnClickListener, V
             spotList.get(i).draw(canvas);
         }
 
-        while(!animator.doQuit()){
-            animator.tick(canvas);
-            sleep(animator.interval());
-            animator.setQuit(true);
-        }
-
-
+        this.cannonThread = new CannonThread(getHolder());
+        cannonThread.start();
     }
 
     @Override

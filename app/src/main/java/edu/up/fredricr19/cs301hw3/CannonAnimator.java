@@ -16,7 +16,7 @@ public class CannonAnimator implements Animator {
     private boolean quit = false;
     private CannonBall ball;
 
-    Paint cannonBallColor = new Paint();
+    private Paint cBallColor = new Paint();
 
     @Override
     public int interval() { return 33; }
@@ -38,7 +38,7 @@ public class CannonAnimator implements Animator {
     public void tick(Canvas canvas) {
         if(ball == null){ return; }
 
-        cannonBallColor.setColor(Color.BLACK);
+        cBallColor.setColor(Color.BLACK);
 
         if(this.x > 750) apex = true;
 
@@ -46,7 +46,8 @@ public class CannonAnimator implements Animator {
         if(!apex) this.y--;
         else this.y++;
 
-        canvas.drawCircle(this.x, this.y, 35, cannonBallColor);
+        ball = new CannonBall(this.x, this.y, 35, 0xFFFFFFFF);
+        ball.draw(canvas);
     }
 
     @Override
