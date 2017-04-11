@@ -8,6 +8,8 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 
+import java.util.ArrayList;
+
 /**
  * @author Ryan Fredrickson
  */
@@ -114,7 +116,7 @@ public class CannonCanvas extends SurfaceView implements View.OnClickListener, V
                     //paint the background
                     if (canvas != null)
                     {
-                        canvas.drawRect(0, 0, getWidth(), getHeight(), backgroundPaint);
+                        //canvas.drawRect(0, 0, getWidth(), getHeight(), backgroundPaint);
 
                         // tell the animator to draw the next frame
                         synchronized (surfaceHolder) {
@@ -136,28 +138,12 @@ public class CannonCanvas extends SurfaceView implements View.OnClickListener, V
         }// run
     }
 
-    /**
-     * I got this from AnimationCanvas
-     * causes this thread to pause for a given interval.
-     *
-     * @param interval
-     *            duration in milliseconds
-     */
-    private void sleep(int interval) {
-        try {
-            Thread.sleep(interval); // use sleep to avoid busy wait
-        } catch (InterruptedException ie) {
-            // don't care if we're interrupted
-        }
-    }// sleep
-
-    /*@Override
+    @Override
     protected void onDraw(Canvas canvas){
         cannon.drawMe(canvas);
 
         Paint targetPaint = new Paint();
         targetPaint.setColor(0xFFFF000F);
-
 
         ArrayList<Spot> spotList = new ArrayList<Spot>();
 
@@ -168,7 +154,7 @@ public class CannonCanvas extends SurfaceView implements View.OnClickListener, V
             spotList.get(i).setColor(0xFFF0000F);
             spotList.get(i).draw(canvas);
         }
-    }*/
+    }
 
     @Override
     public void onClick(View v) {
