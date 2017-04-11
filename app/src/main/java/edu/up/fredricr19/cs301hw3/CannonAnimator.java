@@ -1,6 +1,8 @@
 package edu.up.fredricr19.cs301hw3;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.view.View;
 
 /**
@@ -13,6 +15,8 @@ public class CannonAnimator implements Animator {
     private boolean apex = false;
     private boolean quit = false;
     private CannonBall ball;
+
+    Paint cannonBallColor = new Paint();
 
     @Override
     public int interval() { return 33; }
@@ -34,19 +38,15 @@ public class CannonAnimator implements Animator {
     public void tick(Canvas canvas) {
         if(ball == null){ return; }
 
+        cannonBallColor.setColor(Color.BLACK);
+
         if(this.x > 750) apex = true;
 
-        ball.setVY((float) (ball.vy*.9));
-        if(!apex){
-            y -= y*ball.vy;
-        }else{
-            y += y*ball.vy;
-        }
+        this.x++;
+        if(!apex) this.y--;
+        else this.y++;
 
-        x += ball.vx;
-
-        ball.setPos(this.x, (float)(this.y*0.85));
-        ball.draw(canvas);
+        canvas.drawCircle(this.x, this.y, 35, cannonBallColor);
     }
 
     @Override

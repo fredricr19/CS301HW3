@@ -48,7 +48,7 @@ public class CannonMainActivity extends Activity implements View.OnClickListener
 
 	@Override
 	public void onClick(View v) {
-		//myCanvas.animator.onClick(v, );
+		myCanvas.animator.onClick(v);
 	}
 
 	@Override
