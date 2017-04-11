@@ -15,10 +15,10 @@ public class CannonAnimator implements Animator {
     private CannonBall ball;
 
     @Override
-    public int interval() { return 100; }
+    public int interval() { return 33; }
 
     @Override
-    public int backgroundColor(){ return 0xFFFFFFFF; }
+    public int backgroundColor(){ return 0xFF00FFFF; }
 
     @Override
     public boolean doPause() {
@@ -34,9 +34,7 @@ public class CannonAnimator implements Animator {
     public void tick(Canvas canvas) {
         if(ball == null){ return; }
 
-        if(this.x > 750){
-            apex = true;
-        }
+        if(this.x > 750) apex = true;
 
         ball.setVY((float) (ball.vy*.9));
         if(!apex){
@@ -47,14 +45,13 @@ public class CannonAnimator implements Animator {
 
         x += ball.vx;
 
-
         ball.setPos(this.x, (float)(this.y*0.85));
         ball.draw(canvas);
     }
 
     @Override
     public void onClick(View v) {
-        ball = new CannonBall(this.x, this.y, 40, 0xFFFFFFFF);
+        ball = new CannonBall(this.x, this.y, 35, 0xFFFFFFFF);
 
         ball.setVX(15f);
         ball.setVY(15f);
