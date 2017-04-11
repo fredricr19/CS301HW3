@@ -53,7 +53,7 @@ public class CannonMainActivity extends Activity implements View.OnClickListener
 
 	@Override
 	public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-		myCanvas.cannon.setDegrees((float)(-progress));
+		myCanvas.animator.cannon.setDegrees((float)(-progress));
 		myCanvas.invalidate();
 		this.invalidateOptionsMenu();
 	}

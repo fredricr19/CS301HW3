@@ -18,6 +18,8 @@ public class CannonAnimator implements Animator {
 
     private Paint cBallColor = new Paint();
 
+    Cannon cannon = new Cannon(125, 1600, 0xFF000FFF);
+
     @Override
     public int interval() { return 33; }
 
@@ -36,6 +38,8 @@ public class CannonAnimator implements Animator {
 
     @Override
     public void tick(Canvas canvas) {
+        cannon.drawMe(canvas);
+
         if(ball == null){ return; }
 
         cBallColor.setColor(Color.BLACK);

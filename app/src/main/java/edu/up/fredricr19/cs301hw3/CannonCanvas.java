@@ -8,8 +8,6 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 
-import java.util.ArrayList;
-
 /**
  * @author Ryan Fredrickson
  */
@@ -30,7 +28,8 @@ public class CannonCanvas extends SurfaceView implements View.OnClickListener, V
 
         this.setOnTouchListener(this);
 
-
+        this.cannonThread = new CannonThread(getHolder());
+        cannonThread.start();
 
         backgroundPaint.setColor(this.animator.backgroundColor());
 
@@ -152,7 +151,7 @@ public class CannonCanvas extends SurfaceView implements View.OnClickListener, V
         }
     }// sleep
 
-    @Override
+    /*@Override
     protected void onDraw(Canvas canvas){
         cannon.drawMe(canvas);
 
@@ -169,10 +168,7 @@ public class CannonCanvas extends SurfaceView implements View.OnClickListener, V
             spotList.get(i).setColor(0xFFF0000F);
             spotList.get(i).draw(canvas);
         }
-
-        this.cannonThread = new CannonThread(getHolder());
-        cannonThread.start();
-    }
+    }*/
 
     @Override
     public void onClick(View v) {
